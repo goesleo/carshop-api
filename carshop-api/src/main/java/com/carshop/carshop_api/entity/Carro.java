@@ -1,5 +1,6 @@
 package com.carshop.carshop_api.entity;
 
+import com.carshop.carshop_api.dto.CarroRequestDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,6 +20,14 @@ public class Carro {
     private String placa;
     private String cor;
     private Integer ano;
+
+    public Carro(CarroRequestDTO data){
+        this.modelo = data.modelo();
+        this.marca = data.marca();
+        this.placa = data.placa();
+        this.cor = data.cor();
+        this.ano = data.ano();
+    }
 
 
 
