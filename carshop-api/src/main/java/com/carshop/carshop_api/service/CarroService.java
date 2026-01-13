@@ -1,8 +1,8 @@
 package com.carshop.carshop_api.service;
 
-import com.carshop.carshop_api.dto.CarroRequestDTO;
-import com.carshop.carshop_api.dto.CarroResponseDTO;
-import com.carshop.carshop_api.entity.Carro;
+import com.carshop.carshop_api.model.dto.CarroRequestDTO;
+import com.carshop.carshop_api.model.dto.CarroResponseDTO;
+import com.carshop.carshop_api.model.entity.Carro;
 import com.carshop.carshop_api.repository.CarroRepository;
 import org.springframework.stereotype.Service;
 
@@ -31,4 +31,8 @@ public class CarroService {
     }
 
 
+    public CarroResponseDTO buscarPorId(Long id) {
+        Carro carro = carroRepository.findById(id).orElseThrow(() -> new RuntimeException("Carro nao encontrado") );
+        return new CarroResponseDTO(carro);
+    }
 }

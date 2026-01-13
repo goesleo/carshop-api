@@ -1,4 +1,4 @@
-package com.carshop.carshop_api.dto;
+package com.carshop.carshop_api.model.dto;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;

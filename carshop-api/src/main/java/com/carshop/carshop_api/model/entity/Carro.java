@@ -1,6 +1,6 @@
-package com.carshop.carshop_api.entity;
+package com.carshop.carshop_api.model.entity;
 
-import com.carshop.carshop_api.dto.CarroRequestDTO;
+import com.carshop.carshop_api.model.dto.CarroRequestDTO;
 import jakarta.persistence.*;
 import lombok.*;
 

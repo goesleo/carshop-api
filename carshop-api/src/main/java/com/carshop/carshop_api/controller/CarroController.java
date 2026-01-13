@@ -1,18 +1,17 @@
 package com.carshop.carshop_api.controller;
 
-import com.carshop.carshop_api.dto.CarroRequestDTO;
-import com.carshop.carshop_api.dto.CarroResponseDTO;
-import com.carshop.carshop_api.entity.Carro;
-import com.carshop.carshop_api.repository.CarroRepository;
+import com.carshop.carshop_api.model.dto.CarroRequestDTO;
+import com.carshop.carshop_api.model.dto.CarroResponseDTO;
+import com.carshop.carshop_api.model.entity.Carro;
 import com.carshop.carshop_api.service.CarroService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/api/carros")
+@RequestMapping("/carros")
 public class CarroController {
     @Autowired
     private final CarroService carroService;
@@ -26,6 +25,10 @@ public class CarroController {
         return carroService.listarTodos();
     }
 
+    @GetMapping("/{id}")
+    public CarroResponseDTO buscarPorId(@PathVariable Long id) {
+        return carroService.buscarPorId(id);
+    }
     @PostMapping
     public CarroResponseDTO create(@RequestBody @Valid CarroRequestDTO data) {
         return carroService.create(data);
